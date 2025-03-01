@@ -4,11 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 import { useState } from "react";
 
-interface CopyButtonProps {
-  textToCopy: string;
-}
-
-export default function CopyButton({ textToCopy }: CopyButtonProps) {
+export default function CopyButton({ textToCopy }: { textToCopy: string }) {
   const [hasCopied, setHasCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -19,7 +15,7 @@ export default function CopyButton({ textToCopy }: CopyButtonProps) {
 
   return (
     <Button
-      variant="outline"
+      variant="secondary"
       size="icon"
       onClick={handleCopy}
       className="shrink-0"

@@ -49,9 +49,7 @@ export default async function Home({
       <main className="flex-1 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-xl">
           <div className="mb-8 text-center">
-            <h1 className="mb-2 text-4xl font-bold">
-              Shallow Seek
-            </h1>
+            <h1 className="mb-2 text-4xl font-bold">Shallow Seek</h1>
             <p className="text-sm text-muted-foreground">
               Why go deep when you can stay shallow? 🦦
             </p>
@@ -60,14 +58,13 @@ export default async function Home({
           <SearchForm defaultValue={q} />
 
           <div className="text-center">
-            <p className="text-sm text-muted-foreground mb-2">Make it your default search engine</p>
-            <div className="flex gap-2 max-w-lg mx-auto">
-              <input
-                type="text"
-                readOnly
-                value={searchUrl}
-                className="flex-1 rounded border bg-muted px-3 py-1.5 text-xs font-mono"
-              />
+            <p className="text-sm text-muted-foreground mb-2">
+              Make it your default search engine
+            </p>
+            <div className="flex gap-2 max-w-lg mx-auto justify-center">
+              <code className="relative rounded bg-muted px-3 py-1.5 font-mono text-sm font-semibold overflow-x-auto">
+                {searchUrl}
+              </code>
               <CopyButton textToCopy={searchUrl} />
             </div>
           </div>
