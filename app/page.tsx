@@ -29,7 +29,7 @@ function getBangRedirectUrl(query: string) {
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
   const query = q?.trim();
