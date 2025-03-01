@@ -1,4 +1,5 @@
 import CopyButton from "@/components/copy-button";
+import SearchForm from "@/components/search-form";
 import { bangs } from "@/lib/bang";
 import { redirect } from "next/navigation";
 
@@ -44,52 +45,52 @@ export default async function Home({
   const searchUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://shallow-seek.vercel.app"}/search?q=%s`;
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center max-w-2xl w-full">
-        <div className="text-center space-y-2">
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500">
-            Shallow Seek
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Why go deep when you can stay shallow? 🦦
-          </p>
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 flex flex-col items-center justify-center p-6">
+        <div className="w-full max-w-xl">
+          <div className="mb-8 text-center">
+            <h1 className="mb-2 text-4xl font-bold">
+              Shallow Seek
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Why go deep when you can stay shallow? 🦦
+            </p>
+          </div>
 
-        <div className="content-container text-center w-full">
-          <p className="mb-6 text-lg">
-            Just a shallow wrapper for DuckDuckGo&apos;s bangs. Add this URL to
-            your browser&apos;s search engines to get{" "}
-            <a
-              href="https://duckduckgo.com/bang.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline font-medium"
-            >
-              all the !bangs
-            </a>
-            , but faster. Like an otter, we prefer to float on the surface.
-          </p>
+          <SearchForm defaultValue={q} />
 
-          <div className="url-container flex gap-2 w-full max-w-xl mx-auto">
-            <input
-              type="text"
-              className="url-input flex-1 px-4 py-2 rounded-md border bg-background text-foreground"
-              value={searchUrl}
-              readOnly
-            />
-            <CopyButton textToCopy={searchUrl} />
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground mb-2">Make it your default search engine</p>
+            <div className="flex gap-2 max-w-lg mx-auto">
+              <input
+                type="text"
+                readOnly
+                value={searchUrl}
+                className="flex-1 rounded border bg-muted px-3 py-1.5 text-xs font-mono"
+              />
+              <CopyButton textToCopy={searchUrl} />
+            </div>
           </div>
         </div>
       </main>
 
-      <footer className="row-start-3 flex gap-6 items-center justify-center text-sm text-muted-foreground">
+      <footer className="p-4 flex gap-4 text-sm text-muted-foreground justify-center">
         <a
           href="https://github.com/cooper-gadd/shallow-seek"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:underline hover:underline-offset-4 hover:text-foreground transition-colors"
+          className="hover:text-foreground"
         >
           GitHub
+        </a>
+        <span>•</span>
+        <a
+          href="https://duckduckgo.com/bang.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-foreground"
+        >
+          !Bangs
         </a>
       </footer>
     </div>
