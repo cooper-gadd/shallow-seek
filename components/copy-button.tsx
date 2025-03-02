@@ -18,12 +18,12 @@ export default function CopyButton({ textToCopy }: { textToCopy: string }) {
       variant="secondary"
       size="icon"
       onClick={handleCopy}
-      className="shrink-0"
+      className="transition-all hover:scale-105"
     >
       {hasCopied ? (
-        <ClipboardCheck className="size-4" />
+        <ClipboardCheck className="h-4 w-4 text-green-500" />
       ) : (
-        <Clipboard className="size-4" />
+        <Clipboard className="h-4 w-4" />
       )}
       <span className="sr-only">{hasCopied ? "Copied" : "Copy"}</span>
     </Button>
