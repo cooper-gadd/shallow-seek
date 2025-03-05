@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Globe, Home, Info } from "lucide-react";
+import { Code, Github, Globe, Home, Info } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import * as React from "react";
 
@@ -32,6 +32,7 @@ export function CommandMenu() {
   const navigationItems = [
     { path: "/", label: "Home", icon: Home },
     { path: "/default", label: "Default Search", icon: Globe },
+    { path: "/bangs", label: "Bangs", icon: Code },
   ];
 
   return (

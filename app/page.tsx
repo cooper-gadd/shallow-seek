@@ -1,5 +1,5 @@
 import SearchForm from "@/components/search-form";
-import { bangs } from "@/lib/bang";
+import { bangs } from "@/lib/bangs";
 import { redirect } from "next/navigation";
 
 function getBangRedirectUrl(query: string) {
